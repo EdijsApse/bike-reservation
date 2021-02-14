@@ -19,6 +19,10 @@ const routes = [
     {
         path: '/employees',
         component: EmployeesList
+    },
+    {
+        path: '*',
+        redirect: '/'
     }
 ]
 

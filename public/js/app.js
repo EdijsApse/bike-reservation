@@ -2666,6 +2666,9 @@ var routes = [{
 }, {
   path: '/employees',
   component: _components_Employees_List__WEBPACK_IMPORTED_MODULE_2__.default
+}, {
+  path: '*',
+  redirect: '/'
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   mode: 'history',

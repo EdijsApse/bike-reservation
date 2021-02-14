@@ -31,8 +31,8 @@ class BikeReservationController extends Controller
             [
                 'bike_id' => 'required|exists:bikes,id',
                 'employee_id' => 'required|exists:employees,id',
-                'reserved_from' => 'required|date',
-                'reserved_to' => 'required|date'
+                'reserved_from' => 'required|date|after:now',
+                'reserved_to' => 'required|date|after:reserved_from'
             ],
             [
                 'bike_id.required' => 'Select bike which assigne to employee',
@@ -41,8 +41,10 @@ class BikeReservationController extends Controller
                 'employee_id.exists' => 'Employee not found',
                 'reserved_from.required' => 'From date is requried',
                 'reserved_from.date' => 'From date is not valid',
+                'reserved_from.after' => 'Provide date that is in future',
                 'reserved_to.required' => 'To date is requried',
-                'reserved_to.date' => 'To date is not valid'
+                'reserved_to.date' => 'To date is not valid',
+                'reserved_to.after' => 'To date must be greter then From date'
             ]
         );
 
